@@ -16,4 +16,5 @@ spec:
           service: 
             name: jchinook-api-service
             port:
-              number: 3000
+              number: 8080
+
