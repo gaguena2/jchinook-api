@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jchinook-api-deployment
+  namespace: java-app
+  labels:
+    app: jchinook-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jchinook-api
+  template:
+    metadata:
+      labels:
+        app: jchinook-api
+    spec:
+      containers:
+        - name: jchinook-api
+          image: gaguena/jchinook-api:1.0.0
+          imagePullPolicy: Never
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 3000
